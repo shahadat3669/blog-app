@@ -5,8 +5,7 @@
   "main": "index.js",
   "directories": {
     "lib": "lib",
-    "test": "test",
-    "stylelint": "npx stylelint \"**/*.{css,scss}\""
+    "test": "test"
   },
   "dependencies": {
     "stylelint": "^13.13.1",
@@ -16,7 +15,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "stylelint": "npx stylelint \"**/*.{css,scss}\""
   },
   "repository": {
     "type": "git",
