@@ -63,8 +63,10 @@ The Blog app is a classic example of a blog website. Here I create a fully funct
 
 This project is a simple Blog app. The main features are:
 
-- List all books
-
+- ***User authentication and registration:*** Users can sign up for an account, log in, and log out.
+- ***Post creation:*** Author can create new posts with a title and text content.
+- ***Post management:*** Author can view, edit, and delete their own posts.
+- ***Commenting and Liking:*** Users can add comments and likes to posts.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
