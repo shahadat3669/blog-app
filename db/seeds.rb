@@ -40,3 +40,15 @@ eleventh_comment = Comment.create(post: third_post, author: third_user, text: 'I
 twelfth_comment = Comment.create(post: fourth_post, author: fourth_user, text: 'This is my comment')
 thirteenth_comment = Comment.create(post: fourth_post, author: fifth_user, text: 'Proin quis mi eu dolor scelerisque volutpat.')
 fourteenth_comment = Comment.create(post: fourth_post, author: second_user, text: 'Sed auctor augue euismod est faucibus ultrices.')
+
+# like seeds 
+first_like = Like.create(post: first_post, author: first_user)
+second_like = Like.create(post: first_post, author: second_user)
+third_like = Like.create(post: first_post, author: third_user)
+fourth_like = Like.create(post: first_post, author: fourth_user)
+fifth_like = Like.create(post: first_post, author: fifth_user)
+sixth_like = Like.create(post: second_post, author: second_user)
+seventh_like = Like.create(post: seventh_post, author: third_user)
+eighth_like = Like.create(post: second_post, author: fourth_user)
+ninth_like = Like.create(post: third_post, author: first_user)
+tenth_like = Like.create(post: fourth_post, author: second_user)
