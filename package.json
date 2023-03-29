@@ -1,0 +1,31 @@
+{
+  "name": "blog-app",
+  "version": "1.0.0",
+  "description": "The Blog app is a classic example of a blog website. I am creating a fully functional website that will show the list of posts and empower readers to interact with them by adding comments and liking posts.",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "dependencies": {
+    "stylelint": "^13.13.1",
+    "stylelint-config-standard": "^21.0.0",
+    "stylelint-scss": "^3.21.0",
+    "stylelint-csstree-validator": "^1.9.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "stylelint": "npx stylelint \"**/*.{css,scss}\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shahadat3669/blog-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shahadat3669/blog-app/issues"
+  },
+  "homepage": "https://github.com/shahadat3669/blog-app#readme"
+}
