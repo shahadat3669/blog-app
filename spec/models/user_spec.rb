@@ -16,5 +16,15 @@ RSpec.describe User, type: :model do
       expect(subject).to be_valid
       expect(subject.posts_counter).to eql(0)
     end
+
+    it 'validates the presence of posts_counter' do
+      subject.posts_counter = nil
+      expect(subject).to_not be_valid
+    end
+
+    it 'validates that posts counter is a positive integer' do
+      subject.posts_counter = -1
+      expect(subject).to_not be_valid
+    end
   end
 end
