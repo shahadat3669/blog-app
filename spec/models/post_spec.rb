@@ -46,4 +46,25 @@ RSpec.describe Post, type: :model do
       expect(post).to_not be_valid
     end
   end
+
+  # association tests
+  describe 'association:' do
+    it 'belongs to an author' do
+      expect(post.author).to eql(user)
+    end
+
+    it 'has many comments' do
+      expect(post.comments).to be_empty
+      comment = Comment.create(text: 'Test Comment', post:, user:)
+
+      expect(post.comments).to include(comment)
+    end
+
+    it 'has many likes' do
+      expect(post.likes).to be_empty
+      like = Like.create(post:, user:)
+
+      expect(post.likes).to include(like)
+    end
+  end
 end
