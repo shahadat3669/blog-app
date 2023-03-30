@@ -11,5 +11,10 @@ RSpec.describe User, type: :model do
       subject.name = nil
       expect(subject).to_not be_valid
     end
+
+    it 'validates that posts_counter was set' do
+      expect(subject).to be_valid
+      expect(subject.posts_counter).to eql(0)
+    end
   end
 end
