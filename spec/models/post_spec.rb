@@ -89,4 +89,47 @@ RSpec.describe Post, type: :model do
       expect(user.reload.posts_counter).to eq(2)
     end
   end
+
+  describe '#recent_comments' do
+    it 'returns empty if the post has no comments' do
+      expect(post.recent_comments).to eql([])
+    end
+
+    it 'returns the 5 most recent comments for the post if post has more than 5 comments' do
+      old_comment = post.comments.create(text: 'Old Comment', user:, post:, created_at: 1.day.ago)
+      new_comment = post.comments.create(text: 'New Comment', user:, post:)
+      new_comment2 = post.comments.create(text: 'New Comment2', user:, post:, created_at: 1.hour.ago)
+      new_comment3 = post.comments.create(text: 'New Comment3', user:, post:, created_at: 2.hour.ago)
+      new_comment4 = post.comments.create(text: 'New Comment4', user:, post:, created_at: 3.hour.ago)
+      new_comment5 = post.comments.create(text: 'New Comment5', user:, post:, created_at: 4.hour.ago)
+
+      recent_comments = post.recent_comments
+
+      expect(recent_comments).to eq([new_comment, new_comment2, new_comment3, new_comment4, new_comment5])
+      expect(recent_comments.size).to eq(5)
+      expect(recent_comments).to_not include(old_comment)
+    end
+
+    it 'returns the 5 most recent comments for the post if post has 5 comments only' do
+      new_comment = post.comments.create(text: 'New Comment', user:, post:)
+      new_comment2 = post.comments.create(text: 'New Comment2', user:, post:, created_at: 1.hour.ago)
+      new_comment3 = post.comments.create(text: 'New Comment3', user:, post:, created_at: 2.hour.ago)
+      new_comment4 = post.comments.create(text: 'New Comment4', user:, post:, created_at: 3.hour.ago)
+      new_comment5 = post.comments.create(text: 'New Comment5', user:, post:, created_at: 4.hour.ago)
+
+      recent_comments = post.recent_comments
+
+      expect(recent_comments).to eq([new_comment, new_comment2, new_comment3, new_comment4, new_comment5])
+      expect(recent_comments.size).to eq(5)
+    end
+
+    it 'returns less than 5 recent comments if the post has less than 5 comments' do
+      new_comment = post.comments.create(text: 'New Comment', user:, post:)
+
+      recent_comments = post.recent_comments
+
+      expect(recent_comments).to eq([new_comment])
+      expect(recent_comments.size).to eq(1)
+    end
+  end
 end
