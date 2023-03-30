@@ -1,8 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
-  let(:user) { User.create(name: 'John Doe') }
-  let(:post) { Post.create(title: 'First Post', text: 'First Content', author: user) }
+  let(:author) { User.create(name: 'Shahadat Hossain', photo: 'https://images.unsplash.com/photo-1651684215020-f7a5b6610f23?&fit=crop&w=640', bio: 'A skilled carpenter with over 15 years of experience, specializing in custom furniture design and installation.') }
+  let(:user) { User.create(name: 'Rakibul Islam', photo: 'https://images.unsplash.com/photo-1530268729831-4b0b9e170218?&fit=crop&w=640', bio: 'A licensed therapist with expertise in cognitive-behavioral therapy and trauma-informed care.') }
+
+  let(:post) { Post.create(title: 'First Post', text: 'First Content', author:) }
 
   # validation tests
   describe 'validations:' do
@@ -50,7 +52,7 @@ RSpec.describe Post, type: :model do
   # association tests
   describe 'association:' do
     it 'belongs to an author' do
-      expect(post.author).to eql(user)
+      expect(post.author).to eql(author)
     end
 
     it 'has many comments' do
