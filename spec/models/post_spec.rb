@@ -69,4 +69,24 @@ RSpec.describe Post, type: :model do
       expect(post.likes).to include(like)
     end
   end
+
+  # methods tests
+  describe 'callbacks:' do
+    it 'returns empty if the author has no post' do
+      expect(user.posts_counter).to eq(0)
+    end
+
+    it 'increments the post counter after creating a new post' do
+      Post.create(title: 'First Post', text: 'First Content', author: user)
+
+      expect(user.reload.posts_counter).to eq(1)
+    end
+
+    it 'increment the post counter for creating two post by same user' do
+      Post.create(title: 'First Post', text: 'First Content', author: user)
+      Post.create(title: 'Second Post', text: 'Second Content', author: user)
+
+      expect(user.reload.posts_counter).to eq(2)
+    end
+  end
 end
