@@ -155,3 +155,35 @@ img {
     justify-content: center;
   }
 }
+
+.post {
+  border: 1px solid #14274e;
+
+  &__title {
+    margin-bottom: 16px;
+  }
+
+  &__title-link {
+    font-weight: 700;
+    color: #14274e;
+
+    &:hover {
+      color: #394867;
+    }
+  }
+
+  &__extra {
+    text-align: right;
+  }
+
+  &__comments {
+    border: 1px solid #14274e;
+  }
+
+  &__btn-wrapper {
+    margin: 16px 0 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
