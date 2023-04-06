@@ -1,0 +1,9 @@
+<div class='col-12'>
+  <div class="row">
+    <div class="col-2"><%= image_tag user.photo %></div>
+    <div class="col-10 user__details p-16">
+        <h2 class="user__title"><%= link_to_unless_current user.name, user , class:"user__title-link" %></h2>
+        <p class="user__post-count">Number of posts: <%= user.posts.count %> </p>
+    </div>
+  </div>
+</div>

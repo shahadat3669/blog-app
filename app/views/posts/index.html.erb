@@ -1,2 +1,24 @@
-<h1>Posts#index</h1>
-<p>Here is a list of posts for a given user</p>
+<div class="container my--16">
+  <div class="row">
+    <%= render @user %>
+  </div>
+  <div class="row user__posts">
+    <% if @user.posts.empty? %>
+     <div class="col-12 p-16 user__post">
+        <p>No post found!</p>
+      </div>
+    <% else %>
+        <% @user.posts.each do |post| %>
+          <%= render post %>
+         <div class="col-12 post__comments p-16">
+            <% post.recent_comments.each do |comment| %>
+              <%= render comment %>
+            <% end %>
+         </div>
+        <% end %>
+         <div class="col-12 post__btn-wrapper">
+         <%= link_to "Pagination", user_posts_path(@user), class: "btn btn--primary" %>
+         </div>
+    <% end %>
+  </div>
+</div>

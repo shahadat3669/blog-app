@@ -1,0 +1,5 @@
+<div class="col-12 p-16 post">
+        <h3 class="post__title"><%= link_to_unless_current post.title, user_post_path(@user, post), class:"post__title-link"%> #<%= post.id %></h3>
+        <div class="post__description"><%= post.text.truncate(80, separator: '...') %> </div>
+        <div class="post__extra">Comments: <%= post.comments_counter %>, Likes: <%= post.likes_counter %></div>
+</div>

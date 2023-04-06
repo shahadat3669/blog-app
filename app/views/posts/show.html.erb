@@ -1,2 +1,27 @@
-<h1>Posts#show</h1>
-<p>Here is a post for a given user</p>
+<div class="container my--16">
+  <div class="row post p-16 my--16">
+    <div class="col-6">
+      <div class="post__title"><%= @post.title %> #<%= @post.id %> by <%= @post.author.name %> </div>
+    </div>
+    <div class="col-6">
+      <div class="post__extra">Comments: <%= @post.comments_counter %>, Likes: <%= @post.likes_counter %></div>
+    </div>
+    <div class="col-12">
+      <%= @post.text %>
+    </div>
+  </div>
+
+  <div class="row">
+   <% if @post.comments.empty? %>
+     <div class="col-12 p-16 user__post">
+        <p>No comment found!</p>
+      </div>
+    <% else %>
+    <div class="col-12 post__comments p-16">
+      <% @post.comments.each do |comment| %>
+        <%= render comment %>
+      <% end %>
+    </div>
+    <% end %>
+  </div>
+</div>

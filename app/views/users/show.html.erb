@@ -1,3 +1,23 @@
-<h1>Users#show</h1>
-<p>Here is a user</p>
-
+<div class="container my--16">
+  <div class="row">
+    <%= render @user %>
+    <div class="col-12 user__bio p-16">
+      <h2>Bio</h2>
+      <p><%= @user.bio %></p>
+    </div>
+  </div>
+  <div class="row user__posts">
+    <% if @user.recent_posts.empty? %>
+     <div class="col-12 p-16 user__post">
+        <p>No post found!</p>
+      </div>
+    <% else %>
+        <% @user.recent_posts.each do |post| %>
+          <%= render post %>
+        <% end %>
+         <div class="col-12 user__btn-wrapper">
+         <%= link_to "See all posts", user_posts_path(@user), class: "btn btn--primary" %>
+         </div>
+    <% end %>
+  </div>
+</div>
