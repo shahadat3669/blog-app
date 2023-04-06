@@ -81,3 +81,38 @@ a {
 .col-12 {
   grid-column: span 12;
 }
+
+img {
+  max-width: 100px;
+  height: 100%;
+  width: 100%;
+  max-height: 100px;
+}
+
+.p-16 {
+  padding: 16px;
+}
+
+.m {
+  &--16 {
+    margin: 16px;
+  }
+}
+
+.my {
+  &--16 {
+    margin: 16px 0;
+  }
+}
+
+.btn {
+  color: #14274e;
+  padding: 0.5rem;
+  &:hover {
+    color: #394867;
+  }
+
+  &--primary {
+    border: 1px solid #14274e;
+  }
+}
