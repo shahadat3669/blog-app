@@ -116,3 +116,42 @@ img {
     border: 1px solid #14274e;
   }
 }
+
+.user {
+  &__details {
+    border: 1px solid #14274e;
+  }
+
+  &__title-link {
+    font-weight: 700;
+    color: #14274e;
+
+    &:hover {
+      color: #394867;
+    }
+  }
+
+  &__post-count {
+    text-align: right;
+  }
+
+  &__bio {
+    border: 1px solid #14274e;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  &__posts {
+    margin-top: 16px;
+  }
+  &__post {
+    border: 1px solid #14274e;
+  }
+  &__btn-wrapper {
+    margin: 16px 0 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
