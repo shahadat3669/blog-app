@@ -8,7 +8,7 @@ class PostsController < ApplicationController
   end
 
   def new
-    @id = current_user.id
-    @post = Post.new
+    @user = @current_user
+    @post = @user.posts.new
   end
 end
