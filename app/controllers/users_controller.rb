@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  def index; end
-
-  def show; end
+  layout 'application'
+  def index
+    @users = User.all
+  end
 end
