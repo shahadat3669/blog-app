@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
 
 *,
-*:before,
-*:after {
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -11,7 +11,7 @@
 html,
 body {
   box-sizing: border-box;
-  background-color: #eeeeee;
+  background-color: #eee;
   color: #14274e;
   font-family: 'Roboto', sans-serif;
 }
@@ -108,6 +108,7 @@ img {
 .btn {
   color: #14274e;
   padding: 0.5rem;
+
   &:hover {
     color: #394867;
   }
@@ -145,9 +146,11 @@ img {
   &__posts {
     margin-top: 16px;
   }
+
   &__post {
     border: 1px solid #14274e;
   }
+
   &__btn-wrapper {
     margin: 16px 0 32px;
     display: flex;
