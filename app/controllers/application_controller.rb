@@ -1,5 +1,9 @@
 class ApplicationController < ActionController::Base
-  def current_user
+  before_action :set_current_user
+
+  private
+
+  def set_current_user
     @current_user = User.first
   end
 end
