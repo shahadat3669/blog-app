@@ -6,4 +6,18 @@
       <p><%= @user.bio %></p>
     </div>
   </div>
+  <div class="row user__posts">
+    <% if @user.recent_posts.empty? %>
+     <div class="col-12 p-16 user__post">
+        <p>No post found!</p>
+      </div>
+    <% else %>
+        <% @user.recent_posts.each do |post| %>
+          <%= render post %>
+        <% end %>
+         <div class="col-12 user__btn-wrapper">
+         <%= link_to "See all posts", user_posts_path(@user), class: "btn btn--primary" %>
+         </div>
+    <% end %>
+  </div>
 </div>
