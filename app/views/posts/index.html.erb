@@ -10,6 +10,11 @@
     <% else %>
         <% @user.posts.each do |post| %>
           <%= render post %>
+         <div class="col-12 post__comments p-16">
+            <% post.recent_comments.each do |comment| %>
+              <%= render comment %>
+            <% end %>
+         </div>
         <% end %>
          <div class="col-12 post__btn-wrapper">
          <%= link_to "Pagination", user_posts_path(@user), class: "btn btn--primary" %>
