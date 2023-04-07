@@ -7,6 +7,14 @@
     </div>
   </div>
   <div class="row user__posts">
+      <div class="col-6">
+      <h3 class="post__list-title">All Posts</h3>
+    </div>
+    <div class="col-6">
+      <div class="post__btn-wrapper-r">
+        <button class="btn btn--primary btn__add-new" >Add New Post</button>
+      </div>
+    </div>
     <% if @user.recent_posts.empty? %>
      <div class="col-12 p-16 user__post">
         <p>No post found!</p>
@@ -21,3 +29,10 @@
     <% end %>
   </div>
 </div>
+
+<script>
+  var button = document.querySelector('.btn__add-new');
+  button.addEventListener('click', function() {
+    window.location.href = '<%= new_user_post_path(@user) %>';
+  });
+</script>
