@@ -1,5 +1,14 @@
 <div class="container my--16">
   <div class="row post p-16 my--16">
+    <div class="modal-overlay">
+      <div class="modal">
+        <div class="modal-content">
+          <h2>Flash Message</h2>
+          <p class="flash-message"></p>
+          <button class="close-modal">Close</button>
+        </div>
+      </div>
+    </div>
     <div class="col-6">
       <div class="post__title"><%= @post.title %> #<%= @post.id %> by <%= @post.author.name %> </div>
     </div>
@@ -41,7 +50,20 @@
 
 
 <script>
+  const modalOverlay = document.querySelector('.modal-overlay');
+  const flashMessage = document.querySelector('.flash-message');
+  const closeModalButton = document.querySelector('.close-modal');
   const button = document.querySelector('.btn__add-new');
+
+  <% if flash[:notice].present? %>
+    flashMessage.innerText = '<%= flash[:notice] %>';
+    modalOverlay.style.display = 'block';
+  <% end %>
+
+  closeModalButton.addEventListener('click', () => {
+    modalOverlay.style.display = 'none';
+  });
+
   button.addEventListener('click', function() {
     window.location.href = '<%= new_post_comment_path(@post) %>';
   });
