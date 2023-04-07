@@ -1,14 +1,5 @@
 <div class="container my--16">
   <div class="row">
-    <div class="modal-overlay">
-      <div class="modal">
-        <div class="modal-content">
-          <h2>Flash Message</h2>
-          <p class="flash-message"></p>
-          <button class="close-modal">Close</button>
-        </div>
-      </div>
-    </div>
     <%= render @user %>
   </div>
   <div class="row user__posts">
@@ -47,21 +38,24 @@
 </div>
 
 <script>
+  var button = document.querySelector('.btn__add-new');
+
+  button.addEventListener('click', function() {
+    window.location.href = '<%= new_user_post_path(@user) %>';
+  });
+</script>
+
+<script>
   const modalOverlay = document.querySelector('.modal-overlay');
   const flashMessage = document.querySelector('.flash-message');
   const closeModalButton = document.querySelector('.close-modal');
 
-  var button = document.querySelector('.btn__add-new');
-   <% if flash[:notice].present? %>
-    flashMessage.innerText = '<%= flash[:notice] %>';
-    modalOverlay.style.display = 'block';
+  <% if flash[:notice].present? %>
+      flashMessage.innerText = '<%= flash[:notice] %>';
+      modalOverlay.style.display = 'block';
   <% end %>
 
   closeModalButton.addEventListener('click', () => {
     modalOverlay.style.display = 'none';
-  });
-
-  button.addEventListener('click', function() {
-    window.location.href = '<%= new_user_post_path(@user) %>';
   });
 </script>

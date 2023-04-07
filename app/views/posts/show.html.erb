@@ -1,14 +1,5 @@
 <div class="container my--16">
   <div class="row post p-16 my--16">
-    <div class="modal-overlay">
-      <div class="modal">
-        <div class="modal-content">
-          <h2>Flash Message</h2>
-          <p class="flash-message"></p>
-          <button class="close-modal">Close</button>
-        </div>
-      </div>
-    </div>
     <div class="col-6">
       <div class="post__title"><%= @post.title %> #<%= @post.id %> by <%= @post.author.name %> </div>
     </div>
@@ -35,7 +26,7 @@
   </div>
 
   <div class="row my--16">
-    <div class="col-12">
+    <div class="col-12" style="display: flex; gap: 16px;">
       <% if (@current_user && @post.likes.exists?(user_id: @current_user.id)) %>
         <button class= 'btn btn--disabled' disabled="disabled" ><i class="fa-solid fa-thumbs-up"></i> Like</button>
       <% else %>
@@ -43,28 +34,31 @@
           <i class="fa-solid fa-thumbs-up"></i> Like
         <% end %>
       <% end %> 
-      <button class="btn btn--primary btn__add-new" ><i class="fa-solid fa-comment"></i> Add comment</button>
+      <button id="add-new-comment" class="btn btn--primary" ><i class="fa-solid fa-comment"></i> Add comment</button>
     </div>
   </div>
 </div>
 
 
 <script>
+  const btnComment = document.querySelector('#add-new-comment');
+
+  btnComment.addEventListener('click', function() {
+    window.location.href = '<%= new_post_comment_path(@post) %>';
+  });
+</script>
+
+<script>
   const modalOverlay = document.querySelector('.modal-overlay');
   const flashMessage = document.querySelector('.flash-message');
   const closeModalButton = document.querySelector('.close-modal');
-  const button = document.querySelector('.btn__add-new');
 
   <% if flash[:notice].present? %>
-    flashMessage.innerText = '<%= flash[:notice] %>';
-    modalOverlay.style.display = 'block';
+      flashMessage.innerText = '<%= flash[:notice] %>';
+      modalOverlay.style.display = 'block';
   <% end %>
 
   closeModalButton.addEventListener('click', () => {
     modalOverlay.style.display = 'none';
-  });
-
-  button.addEventListener('click', function() {
-    window.location.href = '<%= new_post_comment_path(@post) %>';
   });
 </script>
