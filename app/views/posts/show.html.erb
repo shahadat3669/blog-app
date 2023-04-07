@@ -28,9 +28,9 @@
   <div class="row my--16">
     <div class="col-12">
       <% if (@current_user && @post.likes.exists?(user_id: @current_user.id)) %>
-      <button class= 'btn btn-disabled' disabled="disabled" ><i class="fa-solid fa-thumbs-up"></i> Like</button>
+      <button class= 'btn btn--disabled' disabled="disabled" ><i class="fa-solid fa-thumbs-up"></i> Like</button>
       <% else %>
-        <%= button_to user_post_likes_path(@user =@current_user, @post), method: :post, class: 'btn btn-primary' do %>
+        <%= button_to user_post_likes_path(@user =@current_user, @post), method: :post, class: 'btn btn--primary' do %>
           <i class="fa-solid fa-thumbs-up"></i> Like
         <% end %>
       <% end %>
