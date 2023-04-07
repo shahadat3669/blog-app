@@ -111,12 +111,16 @@ img {
   padding: 0.5rem;
   cursor: pointer;
 
-  &:hover {
-    color: #394867;
-  }
-
   &--primary {
     border: 1px solid #14274e;
+    &:hover {
+      color: #394867;
+    }
+  }
+  &--disabled {
+    color: #14274e87;
+    border: 1px solid #14274e87;
+    cursor: not-allowed;
   }
 }
 
