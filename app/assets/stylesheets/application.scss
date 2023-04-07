@@ -113,10 +113,12 @@ img {
 
   &--primary {
     border: 1px solid #14274e;
+
     &:hover {
       color: #394867;
     }
   }
+
   &--disabled {
     color: #14274e87;
     border: 1px solid #14274e87;
@@ -225,7 +227,7 @@ img {
   background-color: #fff;
   border-radius: 5px;
   padding: 20px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .modal-content {
