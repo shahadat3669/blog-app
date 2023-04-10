@@ -24,4 +24,41 @@
     </div>
     <% end %>
   </div>
+
+  <div class="row my--16">
+    <div class="col-12" style="display: flex; gap: 16px;">
+      <% if (@current_user && @post.likes.exists?(user_id: @current_user.id)) %>
+        <button class= 'btn btn--disabled' disabled="disabled" ><i class="fa-solid fa-thumbs-up"></i> Like</button>
+      <% else %>
+        <%= button_to user_post_likes_path(@user =@current_user, @post), method: :post, class: 'btn btn--primary' do %>
+          <i class="fa-solid fa-thumbs-up"></i> Like
+        <% end %>
+      <% end %> 
+      <button id="add-new-comment" class="btn btn--primary" ><i class="fa-solid fa-comment"></i> Add comment</button>
+    </div>
+  </div>
 </div>
+
+
+<script>
+  const btnComment = document.querySelector('#add-new-comment');
+
+  btnComment.addEventListener('click', function() {
+    window.location.href = '<%= new_post_comment_path(@post) %>';
+  });
+</script>
+
+<script>
+  const modalOverlay = document.querySelector('.modal-overlay');
+  const flashMessage = document.querySelector('.flash-message');
+  const closeModalButton = document.querySelector('.close-modal');
+
+  <% if flash[:notice].present? %>
+      flashMessage.innerText = '<%= flash[:notice] %>';
+      modalOverlay.style.display = 'block';
+  <% end %>
+
+  closeModalButton.addEventListener('click', () => {
+    modalOverlay.style.display = 'none';
+  });
+</script>

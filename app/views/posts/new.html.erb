@@ -1,0 +1,29 @@
+<div class="container my--16">
+  <div class="row">
+    <div class="col-12">
+      <h2 class="post__title">Add A New Post</h2>
+    </div>
+    <div class="col-12">
+      <%= form_with(model: [@user, @post]) do |f| %>
+        <% if @post.errors[:title].any? %>
+          <ul class="error_messages">
+            <% @post.errors[:title].each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        <% end %>
+        <div class="form-group">
+          <%= f.label :Title %>
+          <%= f.text_field :title, class: "form-control" ,require:true %>
+        </div>
+        <div class="form-group">
+          <%= f.label :Description %>
+          <%= f.text_area :text, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.submit "Create Post", class: "btn btn--primary" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

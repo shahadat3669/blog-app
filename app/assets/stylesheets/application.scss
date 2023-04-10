@@ -101,20 +101,28 @@ img {
 
 .my {
   &--16 {
-    margin: 16px 0;
+    margin-top: 16px;
+    margin-bottom: 16px;
   }
 }
 
 .btn {
   color: #14274e;
   padding: 0.5rem;
-
-  &:hover {
-    color: #394867;
-  }
+  cursor: pointer;
 
   &--primary {
     border: 1px solid #14274e;
+
+    &:hover {
+      color: #394867;
+    }
+  }
+
+  &--disabled {
+    color: #14274e87;
+    border: 1px solid #14274e87;
+    cursor: not-allowed;
   }
 }
 
@@ -189,4 +197,55 @@ img {
     align-items: center;
     justify-content: center;
   }
+
+  &__btn-wrapper-r {
+    text-align: right;
+  }
+}
+
+.error_messages {
+  display: block;
+  border: 1px solid red;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  display: none;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  text-align: center;
+}
+
+.close-modal {
+  display: block;
+  margin: 20px auto 0;
+  padding: 10px 20px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.form-group {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
 }

@@ -3,6 +3,14 @@
     <%= render @user %>
   </div>
   <div class="row user__posts">
+    <div class="col-6">
+      <h3 class="post__list-title">All Posts</h3>
+    </div>
+    <div class="col-6">
+      <div class="post__btn-wrapper-r">
+        <button class="btn btn--primary btn__add-new" >Add New Post</button>
+      </div>
+    </div>
     <% if @user.posts.empty? %>
      <div class="col-12 p-16 user__post">
         <p>No post found!</p>
@@ -10,11 +18,17 @@
     <% else %>
         <% @user.posts.each do |post| %>
           <%= render post %>
-         <div class="col-12 post__comments p-16">
-            <% post.recent_comments.each do |comment| %>
-              <%= render comment %>
+            <% if post.recent_comments.empty? %>
+              <div class="col-12 p-16 user__post">
+                <p>No comment found!</p>
+              </div>
+            <% else %>
+              <div class="col-12 post__comments p-16">
+                  <% post.recent_comments.each do |comment| %>
+                    <%= render comment %>
+                  <% end %>
+              </div>
             <% end %>
-         </div>
         <% end %>
          <div class="col-12 post__btn-wrapper">
          <%= link_to "Pagination", user_posts_path(@user), class: "btn btn--primary" %>
@@ -22,3 +36,26 @@
     <% end %>
   </div>
 </div>
+
+<script>
+  var button = document.querySelector('.btn__add-new');
+
+  button.addEventListener('click', function() {
+    window.location.href = '<%= new_user_post_path(@user) %>';
+  });
+</script>
+
+<script>
+  const modalOverlay = document.querySelector('.modal-overlay');
+  const flashMessage = document.querySelector('.flash-message');
+  const closeModalButton = document.querySelector('.close-modal');
+
+  <% if flash[:notice].present? %>
+      flashMessage.innerText = '<%= flash[:notice] %>';
+      modalOverlay.style.display = 'block';
+  <% end %>
+
+  closeModalButton.addEventListener('click', () => {
+    modalOverlay.style.display = 'none';
+  });
+</script>
