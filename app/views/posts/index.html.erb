@@ -16,7 +16,7 @@
         <p>No post found!</p>
       </div>
     <% else %>
-        <% @user.posts.each do |post| %>
+    <% @user.posts.includes(:author).each do |post| %>
           <%= render post %>
             <% if post.recent_comments.empty? %>
               <div class="col-12 p-16 user__post">
