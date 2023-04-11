@@ -31,7 +31,7 @@ RSpec.describe User, type: :model do
   # method tests
   describe '#recent_posts' do
     it 'returns empty if the user has no posts' do
-      expect(subject.recent_posts).to eql([])
+      expect(subject.recent_posts.to_a).to eql([])
     end
 
     it 'returns the 3 most recent posts for the user if user has more than 3 post' do
