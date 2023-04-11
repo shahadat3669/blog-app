@@ -92,7 +92,7 @@ RSpec.describe Post, type: :model do
 
   describe '#recent_comments' do
     it 'returns empty if the post has no comments' do
-      expect(post.recent_comments).to eql([])
+      expect(post.recent_comments.to_a).to eql([])
     end
 
     it 'returns the 5 most recent comments for the post if post has more than 5 comments' do
