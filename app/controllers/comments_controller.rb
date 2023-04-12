@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   def new
-    @user = @current_user
+    @user = current_user
     @post = Post.find(params[:post_id])
     @comment = @post.comments.new
   end
@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
   def create
     @post = Post.find(params[:post_id])
     @comment = @post.comments.new(comment_params)
-    @comment.user = @current_user
+    @comment.user = current_user
     respond_to do |format|
       if @comment.save
         format.html do
