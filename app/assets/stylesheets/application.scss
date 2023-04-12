@@ -248,13 +248,32 @@ img {
   display: flex;
   gap: 16px;
   margin-bottom: 16px;
+
+  & input {
+    padding: 8px;
+  }
 }
 
-.form__container {
-  margin: 0 auto;
-  width: 50%;
+.form {
+  &__container {
+    margin: 0 auto;
+    width: 50%;
+  }
+
+  &__links {
+    width: 100%;
+  }
 }
 
 .w-100 {
   width: 100%;
+}
+
+.text-center {
+  text-align: center;
+  font-size: 0.5rem;
+}
+
+.font-sm {
+  font-size: 0.875rem;
 }
