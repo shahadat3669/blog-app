@@ -63,10 +63,10 @@ The Blog app is a classic example of a blog website. Here I create a fully funct
 
 This project is a simple Blog app. The main features are:
 
-- ***User authentication and registration:*** Users can sign up for an account, log in, and log out.
-- ***Post creation:*** Author can create new posts with a title and text content.
-- ***Post management:*** Author can view, edit, and delete their own posts.
-- ***Commenting and Liking:*** Users can add comments and likes to posts.
+- **_User authentication and registration:_** Users can sign up for an account, log in, and log out.
+- **_Post creation:_** Author can create new posts with a title and text content.
+- **_Post management:_** Author can view, edit, and delete their own posts.
+- **_Commenting and Liking:_** Users can add comments and likes to posts.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -113,9 +113,33 @@ Go to the project directory.
 ### Create database.yml file
 
 Copy the sample database.yml file and edit the database configuration as required.
+
 ```bash
   cp config/database.yml.sample config/database.yml
 ```
+
+### Encrypted Credentials
+
+For encrypted user name and password for the SMTP server and databases you need master key. Contact author for it. Here is a [documentation link](https://medium.com/craft-academy/encrypted-credentials-in-ruby-on-rails-9db1f36d8570) for encrypted credentials.
+
+```bash
+credentials.yml file example
+# aws:
+#   access_key_id: 123
+#   secret_access_key: 345
+
+# Used as the base secret for all MessageVerifiers in Rails, including the one protecting cookies.
+secret_key_base: secret_key_base
+postgres:
+  username: username
+  password: password
+
+smtp:
+  user: user
+  password: password
+
+```
+
 ### Run the server
 
 In the project directory, you can run the project by using following bash command:
@@ -123,6 +147,7 @@ In the project directory, you can run the project by using following bash comman
 ```bash
   rails server
 ```
+
 And now you can visit the site with the URL http://localhost:3000
 
 ### Testing files
@@ -132,6 +157,7 @@ For testing you can run:
 ```bash
   rspec ./space
 ```
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- AUTHORS -->
@@ -176,7 +202,6 @@ Give a ⭐️ if you like this project!
 
 - My Family.
 - [Microverse Team](https://www.microverse.org/).
-
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

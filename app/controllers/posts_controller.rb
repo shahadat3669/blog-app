@@ -8,12 +8,12 @@ class PostsController < ApplicationController
   end
 
   def new
-    @user = @current_user
+    @user = current_user
     @post = @user.posts.new
   end
 
   def create
-    @user = @current_user
+    @user = current_user
     @post = @user.posts.build(post_params)
 
     if @post.save

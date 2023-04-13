@@ -1,0 +1,19 @@
+<div class="form__links font-sm text-center">
+<%- if controller_name != 'sessions' %>
+  Aready have an account? Go to <%= link_to "Log in", new_session_path(resource_name) %> page.<br />
+<% end %>
+
+<%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+ Are you new here? <%= link_to "Sign up", new_registration_path(resource_name) %> to create an account.<br />
+<% end %>
+
+<%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+  Forgot your password? <%= link_to "Click here", new_password_path(resource_name) %> to get reset email .<br />
+<% end %>
+
+<%- if devise_mapping.omniauthable? %>
+  <%- resource_class.omniauth_providers.each do |provider| %>
+    <%= button_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), data: { turbo: false } %><br />
+  <% end %>
+<% end %>
+</div>
